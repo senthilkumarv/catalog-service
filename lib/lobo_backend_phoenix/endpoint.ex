@@ -12,6 +12,11 @@ defmodule LoboCatalogService.Endpoint do
   plug Plug.RequestId
   plug Plug.Logger
 
+  if code_reloading? do
+    plug Phoenix.CodeReloader
+    plug Phoenix.LiveReloader
+  end
+
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],

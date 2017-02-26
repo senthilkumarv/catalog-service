@@ -4,7 +4,7 @@ defmodule LoboCatalogService.Mixfile do
   def project do
     [app: :lobo_catalog_service,
      version: "0.0.1",
-     elixir: "~> 1.2",
+     elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -18,7 +18,7 @@ defmodule LoboCatalogService.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {LoboCatalogService, []},
-     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger,
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_live_reload, :cowboy, :logger,
                     :phoenix_ecto, :postgrex, :poison, :httpoison]]
   end
 
@@ -35,6 +35,7 @@ defmodule LoboCatalogService.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:httpoison, "~> 0.10.0"},
      {:poison, "~> 2.2.0"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
 
