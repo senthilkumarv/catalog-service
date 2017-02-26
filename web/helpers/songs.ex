@@ -1,4 +1,6 @@
 defmodule LoboCatalogService.Songs do
+  require Logger
+
   alias LoboCatalogService.{ApiClient}
 
   defp transform(song) do
@@ -17,7 +19,7 @@ defmodule LoboCatalogService.Songs do
       {:ok, response} ->
         Enum.map(response["Songs"], &transform/1)
       {:error, _} ->
-        IO.puts("Error fetching songs from server")
+        Logger.error "Error fetching songs from server"
         []
     end
   end

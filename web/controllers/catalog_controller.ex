@@ -1,4 +1,5 @@
 defmodule LoboCatalogService.CatalogController do
+  require Logger
   use LoboCatalogService.Web, :controller
   alias LoboCatalogService.{Categories}
 
@@ -13,7 +14,7 @@ defmodule LoboCatalogService.CatalogController do
 
   def sonos(conn, params) do
     {:ok, body, conn} = Plug.Conn.read_body(conn, length: 1_000_000)
-    IO.puts(body)
+    Logger.info body
     conn
     |> json(params)
   end

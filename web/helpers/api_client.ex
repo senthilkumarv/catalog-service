@@ -1,4 +1,6 @@
 defmodule LoboCatalogService.ApiClient do
+  require Logger
+
   @scheme "http"
   @host "djloboapp.com"
   @base_url "/cms/index.php/api/"
@@ -10,7 +12,7 @@ defmodule LoboCatalogService.ApiClient do
 
   def fetchResponse(resource) do
     url = urlFor(resource)
-    IO.puts("Requesting #{url}")
+    Logger.info "Requesting #{url}"
     response = HTTPoison.get(url)
     case response do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->

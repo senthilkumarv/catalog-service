@@ -1,4 +1,6 @@
 defmodule LoboCatalogService.Categories do
+  require Logger
+
   alias LoboCatalogService.{ApiClient, Songs}
 
   defp transform(category) do
@@ -17,7 +19,7 @@ defmodule LoboCatalogService.Categories do
         songs = categories |> Enum.map(fn(cat) -> cat[:categoryId] end) |> Enum.map(&Songs.fetchSongsFor/1)
         { :ok, %{ categories: categories, songs: Enum.concat(songs) } }
       {:error, error} ->
-        IO.puts("Error fetching categories")
+        Logger.error "Error fetching categories"
         { :error, error }
     end
   end
