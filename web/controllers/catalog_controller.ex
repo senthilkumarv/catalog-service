@@ -1,10 +1,10 @@
 defmodule LoboCatalogService.CatalogController do
   require Logger
   use LoboCatalogService.Web, :controller
-  alias LoboCatalogService.{Categories}
+  alias LoboCatalogService.{Catalog}
 
   def index(conn, _params) do
-    case Categories.fetchCategories()  do
+    case Catalog.fetchCatalog()  do
       {:ok, response} ->
         conn |> json(response)
       {:error, response} ->

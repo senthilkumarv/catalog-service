@@ -13,6 +13,7 @@ defmodule LoboCatalogService.Router do
 
   scope "/sonos", LoboCatalogService do
     pipe_through :soap
+    get "/", SonosController, :wsdl
     post "/", SonosController, :index
   end
 

@@ -11,8 +11,10 @@ config :lobo_catalog_service, LoboCatalogService.Endpoint,
     patterns: [
       ~r{web/controllers/.*(ex)$},
       ~r{web/helpers/.*(ex)$},
+      ~r{web/helpers/sonos/.*(ex)$},
       ~r{web/views/.*(ex)$},
       ~r{web/utilities/.*(ex)$},
+      ~r{web/models/.*(ex)$},
       ~r{web/templates/.*(eex)$}
     ]
   ]
