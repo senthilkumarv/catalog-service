@@ -25,7 +25,8 @@ defmodule LoboCatalogService.Mixfile do
        :logger,
        :poison,
        :httpoison,
-       :erlsom]]
+       :erlsom,
+       :cachex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,6 +41,8 @@ defmodule LoboCatalogService.Mixfile do
      {:httpoison, "~> 0.10.0"},
      {:poison, "~> 2.2.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:erlsom, "~> 1.4"},
+     {:cachex, "~> 2.0"},
      {:cowboy, "~> 1.0"}]
   end
 end

@@ -6,6 +6,7 @@ defmodule LoboCatalogService do
 
     children = [
       supervisor(LoboCatalogService.Endpoint, []),
+      worker(Cachex, [:catalog, []])
     ]
 
     opts = [strategy: :one_for_one, name: LoboCatalogService.Supervisor]
