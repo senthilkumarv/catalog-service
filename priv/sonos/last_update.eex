@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.sonos.com/Services/1.1">
+    <soap:Body>
+        <getLastUpdateResponse xmlns="http://www.sonos.com/Services/1.1">
+            <getLastUpdateResult>
+                <catalog><%= last_update %></catalog>
+                <favorites><%= last_update %></favorites>
+                <pollInterval>60</pollInterval>
+            </getLastUpdateResult>
+        </getLastUpdateResponse>
+    </soap:Body>
+</soap:Envelope>

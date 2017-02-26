@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.sonos.com/Services/1.1">
+    <soap:Body>
+        <getMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
+            <getMetadataResult>
+                <index><%= index %></index>
+                <count><%= count %></count>
+                <total><%= count %></total>
+                <mediaMetadata>
+                    <id>onair</id>
+                    <itemType>stream</itemType>
+                    <title>DJ Lobo Live Radio!</title>
+                    <mimeType>audio/mp3</mimeType>
+                    <streamMetadata>
+                        <currentHost>DJ Lobo Live Radio!</currentHost>
+                        <logo>http://djloboapp.com/sonos/categories/stream.jpg</logo>
+                        <isEphemeral>false</isEphemeral>
+                        <description>DJ Lobo Live Radio! - Nonstop Music</description>
+                        <currentShow>Non-Stop Latin Music!</currentShow>
+                    </streamMetadata>
+                </mediaMetadata>
+                <%= for category <- categories do %>
+                <mediaCollection>
+                  <id>category:<%= category[:categoryId] %></id>
+                  <itemType>container</itemType>
+                  <title><%= category[:categoryTitle] %>(<%= category[:totalSongs] %>)</title>
+                  <albumArtURI>http://djloboapp.com/sonos/categories/default2.jpg</albumArtURI>
+                  <canEnumerate>true</canEnumerate>
+                  <canPlay>true</canPlay>
+                </mediaCollection>
+                <% end %>
+            </getMetadataResult>
+        </getMetadataResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -8,17 +8,16 @@ defmodule LoboCatalogService.Router do
   end
 
   pipeline :soap do
-    plug :accepts, ["xml"]    
+    plug :accepts, ["xml"]
   end
 
   scope "/sonos", LoboCatalogService do
-    pipe_through :soap # Use the default browser stack
-    post "/", CatalogController, :sonos
+    pipe_through :soap
+    post "/", SonosController, :index
   end
 
   scope "/", LoboCatalogService do
-    pipe_through :api # Use the default browser stack
-
+    pipe_through :api
     get "/", CatalogController, :index
   end
 

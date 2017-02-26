@@ -10,7 +10,7 @@ defmodule LoboCatalogService.Endpoint do
   end
 
   plug Plug.Parsers,
-    parsers: [:urlencoded, :multipart, :json],
+    parsers: [:urlencoded, :multipart, :json, :soap],
     pass: ["*/*"],
     json_decoder: Poison
 
