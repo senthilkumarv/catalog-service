@@ -7,16 +7,16 @@
                 <count><%= Enum.count(songs) %></count>
                 <total><%= total %></total>
                 <%= for song <- songs do %>
-                <mediaMetadata>
-                    <id>a:<%= song[:songId] %></id>
-                    <itemType>track</itemType>
-                    <title><%= song[:songTitle] %></title>
-                    <mimeType>audio/mp3</mimeType>
-                    <trackMetadata>
-                        <artist></artist>
-                        <artistId>0</artistId>
-                        <albumId>category:7</albumId>
-                        <album>Bachata</album>
+                    <mediaMetadata>
+                        <id><%= category[:categoryId] %>:<%= song[:songId] %></id>
+                        <itemType>track</itemType>
+                        <title><%= song[:songTitle] %></title>
+                        <mimeType>audio/mp3</mimeType>
+                        <trackMetadata>
+                            <artist></artist>
+                            <artistId>0</artistId>
+                            <albumId>category:<%= category[:categoryId] %></albumId>
+                            <album><%= category[:categoryTitle] %></album>
                         <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art.jpg</albumArtURI>
                         <canPlay>true</canPlay>
                     </trackMetadata>

@@ -1,36 +1,35 @@
 defmodule LoboCatalogService.Sonos.Operations do
-  alias LoboCatalogService.Sonos.{ Metadata }
+  alias LoboCatalogService.Sonos.{ Metadata, MediaURI }
   require EEx
   require Logger
 
-  last_update = DateTime.to_unix(DateTime.utc_now())
-
-  def invoke({:getMetadata, _, id, index, count, recursive}) do
+  def invoke({:getMetadata, _, id, index, count, recursive}, catalog) do
     Logger.debug "Get Metadata #{id} #{index} #{count} #{recursive}"
-    Metadata.fetch_metadata({String.split(List.to_string(id), ":"), index, count})
+    {:ok, Metadata.fetch_metadata({String.split(List.to_string(id), ":"), index, count}, catalog)}
   end
 
-  def invoke({:getLastUpdate, _}) do
+  def invoke({:getLastUpdate, _}, catalog) do
     Logger.debug "Get Last Update"
-    {:ok, EEx.eval_file("priv/sonos/last_update.eex", [last_update: @last_update])}
+    {:ok, EEx.eval_file("priv/sonos/last_update.eex", [last_update: catalog[:last_update]])}
   end
 
-  def invoke({:getMediaMetadata, _, id}) do
+  def invoke({:getMediaMetadata, _, id}, _catalog) do
     Logger.debug "Get media metadata #{id}"
     {:ok, %{:lastUpdate => "#{id}"}}
   end
 
-  def invoke({:getMediaURI, _, id, action, seconds_since_explicit, device_session_token}) do
+  def invoke({:getMediaURI, _, id, action, seconds_since_explicit, device_session_token}, catalog) do
     Logger.debug "Get media URI #{id} #{action} #{seconds_since_explicit} #{device_session_token}"
-    {:ok, %{:lastUpdate => "1234"}}
+    [categoryId, songId] = String.split(List.to_string(id), ":")
+    {:ok, MediaURI.fetch_media_uri(String.to_integer(categoryId), String.to_integer(songId), catalog)}
   end
 
-  def invoke({:getExtendedMetadata, _, id}) do
+  def invoke({:getExtendedMetadata, _, id}, _catalog) do
     Logger.debug "Get extended metadata #{id}"
     {:ok, %{:lastUpdate => "1234"}}
   end
 
-  def invoke(_) do
+  def invoke(_, _catalog) do
     {:error, %{message: "No matching operations"}}
   end
 

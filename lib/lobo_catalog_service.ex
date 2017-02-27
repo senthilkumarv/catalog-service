@@ -5,8 +5,8 @@ defmodule LoboCatalogService do
     import Supervisor.Spec
 
     children = [
-      supervisor(LoboCatalogService.Endpoint, []),
-      worker(Cachex, [:catalog, []])
+      worker(Cachex, [:catalog, [ default_ttl: :timer.minutes(30) ]]),
+      supervisor(LoboCatalogService.Endpoint, [])
     ]
 
     opts = [strategy: :one_for_one, name: LoboCatalogService.Supervisor]

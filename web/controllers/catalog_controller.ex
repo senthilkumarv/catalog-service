@@ -4,7 +4,7 @@ defmodule LoboCatalogService.CatalogController do
   alias LoboCatalogService.{Catalog}
 
   def index(conn, _params) do
-    case Catalog.fetchCatalog()  do
+    case Catalog.fetch_catalog()  do
       {:ok, response} ->
         conn |> json(response)
       {:error, response} ->
