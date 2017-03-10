@@ -1,7 +1,7 @@
 defmodule LoboCatalogService.Categories do
   require Logger
 
-  alias LoboCatalogService.{ApiClient, Songs}
+  alias LoboCatalogService.{ApiClient}
 
   defp transform(category) do
     %{

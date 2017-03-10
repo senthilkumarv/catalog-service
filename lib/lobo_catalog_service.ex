@@ -1,11 +1,12 @@
 defmodule LoboCatalogService do
   use Application
+  alias LoboCatalogService.{CacheManager}
 
   def start(_type, _args) do
     import Supervisor.Spec
 
     children = [
-      worker(Cachex, [:catalog, [ default_ttl: :timer.minutes(30) ]]),
+      worker(Cachex, [:catalog]),
       supervisor(LoboCatalogService.Endpoint, [])
     ]
 

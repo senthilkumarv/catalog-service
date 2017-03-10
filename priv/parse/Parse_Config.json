@@ -1,0 +1,7 @@
+{
+  "params": {
+    "ChartboostiOSEnabled": true,
+    "ChartboostAndroidEnabled": true,
+    "ChartboostDisplayIntervalInMinutes": 5
+  }
+}

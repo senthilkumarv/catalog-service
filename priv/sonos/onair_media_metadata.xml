@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.sonos.com/Services/1.1">
+    <soap:Body>
+        <getMediaMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
+            <getMediaMetadataResult>
+                <id>onair</id>
+                <itemType>stream</itemType>
+                <title>DJ Lobo Live Radio!</title>
+                <mimeType>audio/mp3</mimeType>
+                <streamMetadata>
+                    <currentHost>DJ Lobo Live Radio!</currentHost>
+                    <logo>http://djloboapp.com/sonos/categories/stream.jpg</logo>
+                    <isEphemeral>false</isEphemeral>
+                    <description>DJ Lobo Live Radio! - Nonstop Music</description>
+                    <currentShow>Non-Stop Latin Music!</currentShow>
+                </streamMetadata>
+            </getMediaMetadataResult>
+        </getMediaMetadataResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -7,12 +7,12 @@ defmodule LoboCatalogService.SonosController do
 
   defp invoke(conn, body, catalog) do
     case Operations.invoke(body, catalog) do
-      { :ok, response } ->
+      { :error, _ } ->
+        send_fault(conn)
+      response ->
         conn
         |> put_resp_content_type("text/xml; charset=UTF-8")
         |> send_resp(200, response)
-      { :error, _ } ->
-        send_fault(conn)
     end
   end
 

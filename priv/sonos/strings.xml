@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stringtables xmlns="http://sonos.com/sonosapi">
+    <stringtable rev="1" xml:lang="en-US">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="da-DK">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="de-DE">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="es-ES">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="fr-FR">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="it-IT">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="ja-JP">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="nb-NO">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="nl-NL">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="pt-BR">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+    <stringtable rev="1" xml:lang="sv-SE">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>
+    </stringtable>
+    <stringtable rev="1" xml:lang="zh-CN">
+        <string stringId="ServicePromo">Now you can listen to exclusive curated mixes from DJ Lobo's app into your Sonos system.  Enjoy commercial FREE music 24 hrs a day 7 days a week.</string>  
+    </stringtable>
+</stringtables>
+

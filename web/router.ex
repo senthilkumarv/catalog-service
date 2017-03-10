@@ -17,9 +17,28 @@ defmodule LoboCatalogService.Router do
     post "/", SonosController, :index
   end
 
-  scope "/", LoboCatalogService do
-    pipe_through :api
-    get "/", CatalogController, :index
+  scope "/static", LoboCatalogService do
+    get "/presentationmap.xml", StaticController, :presentation_map
+    get "/strings.xml", StaticController, :strings
   end
 
+  scope "/api", LoboCatalogService do
+    pipe_through :api
+    get "/catalog", CatalogController, :index
+  end
+
+  scope "/muxicParse", LoboCatalogService do
+    pipe_through :api
+    post "/classes/SoundCloudIDs", ParseController, :sound_cloud
+    post "/events/AppOpened", ParseController, :app_opened
+    post "/classes/Genres", ParseController, :generes
+    get "/classes/Genres", ParseController, :generes
+    get "/config", ParseController, :config
+    post "/classes/_Installation", ParseController, :add_device
+  end
+
+  scope "/parse", LoboCatalogService do
+    pipe_through :api
+    post "/classes/_Installation", ParseController, :add_lobo_device
+  end
 end

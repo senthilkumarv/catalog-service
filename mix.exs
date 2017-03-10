@@ -38,11 +38,11 @@ defmodule LoboCatalogService.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
-     {:httpoison, "~> 0.10.0"},
+     {:httpoison, "~> 0.11.1"},
      {:poison, "~> 2.2.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:erlsom, "~> 1.4"},
-     {:cachex, "~> 2.0"},
+     {:cachex, "~> 2.1.0"},
      {:cowboy, "~> 1.0"}]
   end
 end

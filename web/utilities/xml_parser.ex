@@ -2,7 +2,7 @@ defmodule Plug.Parsers.SOAP do
   @behaviour Plug.Parsers
   alias Plug.Conn
 
-  def parse(conn, type, "xml", headers, opts) when type in ["application", "text"] do
+  def parse(conn, type, "xml", _headers, opts) when type in ["application", "text"] do
     case Conn.read_body(conn, opts) do
       {:ok, body, conn} ->
         {:ok, soap_envelop} = :erlsom.compile_xsd_file("priv/sonos/SoapEnvelop.xsd")

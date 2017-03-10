@@ -1,5 +1,5 @@
 defmodule LoboCatalogService.Sonos.Metadata do
-  alias LoboCatalogService.{ ListUtils, Catalog }
+  alias LoboCatalogService.{ ListUtils, Catalog, ApiClient }
   require EEx
   require Logger
 
@@ -24,7 +24,23 @@ defmodule LoboCatalogService.Sonos.Metadata do
       total: Enum.count(songs)]
   end
 
-  def fetch_metadata(_, catalog) do
+  def fetch_metadata(_, _catalog) do
     {:error, %{:message => "Bad Request Data"}}
+  end
+
+  def fetch_media_metadata([categoryId, songId], catalog) do
+    category = Catalog.fetch_category(catalog, String.to_integer(categoryId))
+    song = Catalog.fetch_song(catalog, String.to_integer(categoryId), String.to_integer(songId))
+    songFileName = Path.basename(song[:songUrl])
+    IO.puts(songFileName)
+    EEx.eval_file "priv/sonos/media_metadata.eex", [
+      category: category,
+      song: song,
+      duration: Cachex.get!(:catalog, songFileName, fallback: &ApiClient.fetch_duration/1)
+    ]
+  end
+
+  def fetch_media_metadata(["onair"], _catalog) do
+    File.read!("priv/sonos/onair_media_metadata.xml")
   end
 end
