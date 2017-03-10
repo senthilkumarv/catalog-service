@@ -18,6 +18,14 @@ defmodule LoboCatalogService.Endpoint do
   plug Plug.Head
 
 
+  plug Plug.Static,
+    at: "/static", from: :lobo_catalog_service,
+    only: ~w(strings.xml presentationmap.xml)
+
+  plug Plug.Static,
+    at: "/", from: :lobo_catalog_service,
+    only: ~w(css images js favicon.ico robots.txt)
+
   plug Plug.Session,
     store: :cookie,
     key: "_lobo_catalog_service_key",

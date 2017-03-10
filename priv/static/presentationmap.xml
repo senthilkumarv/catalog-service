@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Presentation>
+  <BrowseOptions PageSize="50" />
+	<PresentationMap type="ArtWorkSizeMap">
+	  <Match>		
+		  <imageSizeMap>
+			  <sizeEntry size="180" substitution="_180.jpg"/>
+			  <sizeEntry size="600" substitution="_600.jpg"/>
+		  </imageSizeMap>
+	  </Match>
+	</PresentationMap>
+</Presentation>

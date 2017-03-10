@@ -17,11 +17,6 @@ defmodule LoboCatalogService.Router do
     post "/", SonosController, :index
   end
 
-  scope "/static", LoboCatalogService do
-    get "/presentationmap.xml", StaticController, :presentation_map
-    get "/strings.xml", StaticController, :strings
-  end
-
   scope "/api", LoboCatalogService do
     pipe_through :api
     get "/catalog", CatalogController, :index
@@ -41,4 +36,9 @@ defmodule LoboCatalogService.Router do
     pipe_through :api
     post "/classes/_Installation", ParseController, :add_lobo_device
   end
+end
+
+defmodule LoboCatalogService.StaticRouter do
+  use Phoenix.Router, port: 4000,
+    static: [mount: "/static", priv_dir: "sonos"]
 end
