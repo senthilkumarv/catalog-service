@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Presentation>    
+<Presentation>
+  <BrowseOptions PageSize="50" />
 	<PresentationMap type="ArtWorkSizeMap">
-	<Match>		
-		<imageSizeMap>
-			<sizeEntry size="0" substitution=".jpg"/>
-			<sizeEntry size="180" substitution="_180.jpg"/>
-			<sizeEntry size="600" substitution="_600.jpg"/>
-		</imageSizeMap>
-	</Match>
+	  <Match>		
+		  <imageSizeMap>
+			  <sizeEntry size="180" substitution="_180.jpg"/>
+			  <sizeEntry size="600" substitution="_600.jpg"/>
+		  </imageSizeMap>
+	  </Match>
 	</PresentationMap>
-	<PresentationMap type="BrowseIconSizeMap">
-	<Match>		
-		<browseIconSizeMap>
-			<sizeEntry size="0" substitution=".jpg"/>
-			<sizeEntry size="180" substitution="_180.jpg"/>
-			<sizeEntry size="600" substitution="_600.jpg"/>
-		</browseIconSizeMap>
-	</Match>
-	</PresentationMap>	
 </Presentation>

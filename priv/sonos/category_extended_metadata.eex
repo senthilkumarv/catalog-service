@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.sonos.com/Services/1.1">
+    <soap:Body>
+        <getExtendedMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
+            <getExtendedMetadataResult>
+                <mediaCollection>
+                    <id>category:<%= category[:categoryId] %></id>
+                    <title><%= category[:categoryTitle] %></title>
+                    <canEnumerate>true</canEnumerate>
+                    <canPlay>true</canPlay>
+                </mediaCollection>
+            </getExtendedMetadataResult>
+        </getExtendedMetadataResponse>
+    </soap:Body>
+</soap:Envelope>

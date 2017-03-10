@@ -16,8 +16,8 @@
                             <artist></artist>
                             <artistId>0</artistId>
                             <albumId>category:<%= category[:categoryId] %></albumId>
-                            <album><%= category[:categoryTitle] %></album>
-                        <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art.jpg</albumArtURI>
+                            <album><%= Plug.HTML.html_escape(category[:categoryTitle]) %></album>
+                        <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art_600.jpg</albumArtURI>
                         <canPlay>true</canPlay>
                     </trackMetadata>
                 </mediaMetadata>

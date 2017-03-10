@@ -6,7 +6,7 @@ defmodule LoboCatalogService.Categories do
   defp transform(category) do
     %{
       categoryId: String.to_integer(category["id_cat"]),
-      categoryTitle: category["title"],
+      categoryTitle: Plug.HTML.html_escape(category["title"]),
       order: String.to_integer(category["cat_order"]),
       totalSongs: String.to_integer(category["total_songs"])
    }

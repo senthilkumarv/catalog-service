@@ -5,7 +5,7 @@ defmodule LoboCatalogService.Songs do
   defp transform(song) do
     %{
       songId: String.to_integer(song["id_song"]),
-      songTitle: song["title"],
+      songTitle: Plug.HTML.html_escape(song["title"]),
       categoryId: String.to_integer(song["id_cat"]),
       songUrl: song["song_url"],
       artistId: String.to_integer(song["id_artist"]),

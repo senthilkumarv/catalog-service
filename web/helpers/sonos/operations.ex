@@ -1,5 +1,5 @@
 defmodule LoboCatalogService.Sonos.Operations do
-  alias LoboCatalogService.Sonos.{ Metadata, MediaURI }
+  alias LoboCatalogService.Sonos.{ Metadata, MediaURI, ExtendedMetadata }
   require EEx
   require Logger
 
@@ -32,9 +32,9 @@ defmodule LoboCatalogService.Sonos.Operations do
       catalog)
   end
 
-  def invoke({:getExtendedMetadata, _, id}, _catalog) do
+  def invoke({:getExtendedMetadata, _, id}, catalog) do
     Logger.debug "Get extended metadata #{id}"
-    %{:lastUpdate => "1234"}
+    ExtendedMetadata.metadata(String.split(List.to_string(id), ":"), catalog)
   end
 
   def invoke(_, _catalog) do

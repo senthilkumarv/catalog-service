@@ -14,8 +14,8 @@ defmodule Plug.Parsers.SOAP do
             {:ok, %{headers: soap_header, body: soap_body}, conn}
           {:ok, {:Envelope, [], :undefined, {:Body, [], [soap_body]}}, []} ->
             {:ok, %{body: soap_body}, conn}
-          # {:error, _} ->
-          #  raise Plug.BadRequestError
+          {:error, _} ->
+            raise Plug.BadRequestError
         end
       {:more, _data, conn} ->
         {:error, :too_large, conn}

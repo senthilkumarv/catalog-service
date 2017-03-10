@@ -32,7 +32,6 @@ defmodule LoboCatalogService.Sonos.Metadata do
     category = Catalog.fetch_category(catalog, String.to_integer(categoryId))
     song = Catalog.fetch_song(catalog, String.to_integer(categoryId), String.to_integer(songId))
     songFileName = Path.basename(song[:songUrl])
-    IO.puts(songFileName)
     EEx.eval_file "priv/sonos/media_metadata.eex", [
       category: category,
       song: song,

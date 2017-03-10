@@ -20,8 +20,8 @@ defmodule LoboCatalogService.Catalog do
       {:missing, _} ->
         case fetch_from_catalog() do
           {:ok, catalog} ->
-            Cachex.set(:catalog, "catalog", catalog, [ ttl: :timer.minutes(30) ])
-            Cachex.set(:catalog, "last_update", catalog[:last_update])
+            Cachex.set(:catalog, "catalog", catalog, [ ttl: :timer.minutes(60) ])
+            Cachex.set(:catalog, "last_update", catalog[:last_update], [ttl: :timer.minutes(60)])
             {:ok, catalog}
           {:error, message} ->
             {:error, %{message: message}}

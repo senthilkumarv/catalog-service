@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:tns="http://www.sonos.com/Services/1.1">
     <soap:Body>
-        <getMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
-            <getMetadataResult>
-                <index><%= index %></index>
-                <count><%= count %></count>
-                <total><%= count %></total>
+        <getExtendedMetadataResponse xmlns="http://www.sonos.com/Services/1.1">
+            <getExtendedMetadataResult>
                 <mediaMetadata>
                     <id>onair</id>
                     <itemType>stream</itemType>
@@ -19,18 +16,7 @@
                         <currentShow>Non-Stop Latin Music!</currentShow>
                     </streamMetadata>
                 </mediaMetadata>
-                <%= for category <- categories do %>
-                <mediaCollection>
-                  <id>category:<%= category[:categoryId] %></id>
-                  <itemType>container</itemType>
-                  <title><%= category[:categoryTitle] %>(<%= category[:totalSongs] %>)</title>
-                  <albumArtURI>http://djloboapp.com/sonos/categories/default2_600.jpg</albumArtURI>
-                  <canEnumerate>true</canEnumerate>
-                  <canPlay>true</canPlay>
-                  <canScroll>false</canScroll>
-                </mediaCollection>
-                <% end %>
-            </getMetadataResult>
-        </getMetadataResponse>
+            </getExtendedMetadataResult>
+        </getExtendedMetadataResponse>
     </soap:Body>
 </soap:Envelope>

@@ -5,14 +5,14 @@
             <getMediaMetadataResult>
                 <id><%= category[:categoryId] %>:<%= song[:songId] %></id>
                 <itemType>track</itemType>
-                <title><%= song[:songTitle] %></title>
+                <title><%= Plug.HTML.html_escape(song[:songTitle]) %></title>
                 <mimeType>audio/mp3</mimeType>
                 <trackMetadata>
                     <artist></artist>
                     <artistId>0</artistId>
                     <albumId>category:<%= category[:categoryId] %></albumId>
-                    <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art.jpg</albumArtURI>
-                    <album><%= category[:categoryTitle] %></album>
+                    <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art_600.jpg</albumArtURI>
+                    <album><%= Plug.HTML.html_escape(category[:categoryTitle]) %></album>
                     <duration><%= duration %></duration>
                     <canPlay>true</canPlay>
                 </trackMetadata>
