@@ -4,9 +4,7 @@ config :lobo_catalog_service, LoboCatalogService.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
-  check_origin: false
-
-config :lobo_catalog_service, LoboCatalogService.Endpoint,
+  check_origin: false,
   live_reload: [
     patterns: [
       ~r{web/controllers/.*(ex)$},
