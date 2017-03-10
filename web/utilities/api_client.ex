@@ -38,11 +38,10 @@ defmodule LoboCatalogService.ApiClient do
   end
 
   def add_device(info, appId) do
-    IO.inspect(info)
     is_ios = info[:deviceType] == "ios"
     device_type = if (is_ios) do 0 else 1 end
     device_model = if (is_ios) do "iPhone 8,2" else "Nexus 5" end
-    response = HTTPoison.post("https://onesignal.com/api/v1/players", EEx.eval_file("priv/parse/add_device.eex", [
+    HTTPoison.post("https://onesignal.com/api/v1/players", EEx.eval_file("priv/parse/add_device.eex", [
           "app_id": appId,
           "identifier": info[:deviceToken],
           "language": "en",
@@ -52,8 +51,6 @@ defmodule LoboCatalogService.ApiClient do
           "device_type": device_type,
           "device_model": device_model
             ]), [{"Content-Type", "application/json"}], [ssl: [{:versions, [:'tlsv1.2']}], recv_timeout: 500])
-    IO.inspect(response)
-    {:ok}
   end
 end
 
