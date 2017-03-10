@@ -1,12 +1,12 @@
 branch-defaults:
+  master:
+    default_platform: Docker
+    environment: LoboBackend
+    group-suffix: null
   release:
+    default_platform: Node.js
     environment: LoboBackend
     group_suffix: null
-    default_platform: Node.js
-  master:
-    environment: LoboBackendPhoenix
-    group-suffix: null
-    default_platform: Docker
 global:
   application_name: lobo-backend
   default_ec2_keyname: LoboKeyPair
