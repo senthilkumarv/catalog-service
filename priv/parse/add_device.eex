@@ -1,0 +1,10 @@
+{
+  "app_id": "<%= app_id %>",
+  "identifier": "<%= identifier %>",
+  "language": "en",
+  "timezone": -28800,
+  "game_version": "<%= game_version %>",
+  "device_os": "10.2",
+  "device_type": "<%= device_type %>",
+  "device_model": "<%= device_model %>"
+}
