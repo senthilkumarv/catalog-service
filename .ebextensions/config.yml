@@ -1,0 +1,15 @@
+branch-defaults:
+  release:
+    environment: LoboBackend
+    group_suffix: null
+    default_platform: Node.js
+  master:
+    environment: LoboBackendPhoenix
+    group-suffix: null
+    default_platform: Docker
+global:
+  application_name: lobo-backend
+  default_ec2_keyname: LoboKeyPair
+  default_region: us-east-1
+  profile: eb-cli
+  sc: git
