@@ -1,0 +1,15 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "elixir:1.4.1",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "4000"
+    }
+  ],
+  "Volumes": [
+  ],
+  "Logging": "/var/log/nginx"
+}
