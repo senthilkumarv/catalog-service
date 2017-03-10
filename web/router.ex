@@ -29,15 +29,13 @@ defmodule LoboCatalogService.Router do
     get "/classes/Genres", ParseController, :generes
     get "/config", ParseController, :config
     post "/classes/_Installation", ParseController, :add_device
+    put "/classes/_Installation/:id", ParseController, :config
   end
 
   scope "/parse", LoboCatalogService do
     pipe_through :api
     post "/classes/_Installation", ParseController, :add_lobo_device
+    put "/classes/_Installation/:idr", ParseController, :config
   end
 end
 
-defmodule LoboCatalogService.StaticRouter do
-  use Phoenix.Router, port: 4000,
-    static: [mount: "/static", priv_dir: "sonos"]
-end
