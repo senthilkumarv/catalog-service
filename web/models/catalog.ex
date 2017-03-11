@@ -2,6 +2,7 @@ defmodule LoboCatalogService.Catalog do
   alias LoboCatalogService.{ Categories, Songs }
   require Logger
 
+
   defp fetch_from_catalog() do
     case Categories.fetchAll() do
       {:ok, categories} ->
@@ -13,19 +14,23 @@ defmodule LoboCatalogService.Catalog do
     end
   end
 
+  def build_catalog() do
+    case fetch_from_catalog() do
+      {:ok, catalog} ->
+        Cachex.set(:catalog, "catalog", catalog, [ ttl: :timer.minutes(60) ])
+        Cachex.set(:catalog, "last_update", catalog[:last_update], [ttl: :timer.minutes(60)])
+        {:ok, catalog}
+      {:error, message} ->
+        {:error, %{message: message}}
+    end
+  end
+
   def fetch_catalog() do
     case Cachex.get(:catalog, "catalog") do
       {:ok, value} ->
         {:ok, value}
       {:missing, _} ->
-        case fetch_from_catalog() do
-          {:ok, catalog} ->
-            Cachex.set(:catalog, "catalog", catalog, [ ttl: :timer.minutes(60) ])
-            Cachex.set(:catalog, "last_update", catalog[:last_update], [ttl: :timer.minutes(60)])
-            {:ok, catalog}
-          {:error, message} ->
-            {:error, %{message: message}}
-        end
+        build_catalog()
     end
   end
 

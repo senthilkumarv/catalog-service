@@ -15,7 +15,7 @@ defmodule LoboCatalogService.Mixfile do
   # Configuration for the OTP application.
   #
   # Type `mix help compile.app` for more information.
-  
+
   def application do
     [mod: {LoboCatalogService, []},
      applications: [
@@ -25,7 +25,10 @@ defmodule LoboCatalogService.Mixfile do
        :logger,
        :poison,
        :httpoison,
+       :hackney,
        :erlsom,
+       :configparser_ex,
+       :ex_aws,
        :cachex]]
   end
 
@@ -43,6 +46,10 @@ defmodule LoboCatalogService.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:erlsom, "~> 1.4"},
      {:cachex, "~> 2.1.0"},
+     {:ex_aws, "~> 1.1"},
+     {:configparser_ex, "~> 0.2.1"},
+     {:hackney, "~> 1.7.1", override: true},
      {:cowboy, "~> 1.0"}]
   end
+
 end

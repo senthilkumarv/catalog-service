@@ -2,3 +2,4 @@ _build/
 *lock
 **/.DS_Store
 deps/
+.vagrant

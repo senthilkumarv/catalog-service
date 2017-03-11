@@ -1,5 +1,5 @@
 defmodule LoboCatalogService.Sonos.Metadata do
-  alias LoboCatalogService.{ ListUtils, Catalog, ApiClient }
+  alias LoboCatalogService.{ ListUtils, Catalog }
   require EEx
   require Logger
 
@@ -31,11 +31,9 @@ defmodule LoboCatalogService.Sonos.Metadata do
   def fetch_media_metadata([categoryId, songId], catalog) do
     category = Catalog.fetch_category(catalog, String.to_integer(categoryId))
     song = Catalog.fetch_song(catalog, String.to_integer(categoryId), String.to_integer(songId))
-    songFileName = Path.basename(song[:songUrl])
     EEx.eval_file "priv/sonos/media_metadata.eex", [
       category: category,
-      song: song,
-      duration: Cachex.get!(:catalog, songFileName, fallback: &ApiClient.fetch_duration/1)
+      song: song
     ]
   end
 

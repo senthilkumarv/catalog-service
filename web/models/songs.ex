@@ -3,13 +3,15 @@ defmodule LoboCatalogService.Songs do
   alias LoboCatalogService.{ ApiClient }
 
   defp transform(song) do
+    songFileName = Path.basename(song["song_url"])
     %{
       songId: String.to_integer(song["id_song"]),
       songTitle: Plug.HTML.html_escape(song["title"]),
       categoryId: String.to_integer(song["id_cat"]),
       songUrl: song["song_url"],
       artistId: String.to_integer(song["id_artist"]),
-      featured: String.to_integer(song["featured"]) == 1
+      featured: String.to_integer(song["featured"]) == 1,
+      duration: Cachex.get!(:catalog, songFileName, fallback: &ApiClient.fetch_duration/1)
     }
   end
 

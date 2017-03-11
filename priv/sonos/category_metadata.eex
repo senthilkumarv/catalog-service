@@ -17,8 +17,9 @@
                             <artistId>0</artistId>
                             <albumId>category:<%= category[:categoryId] %></albumId>
                             <album><%= category[:categoryTitle] %></album>
-                        <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art_600.jpg</albumArtURI>
-                        <canPlay>true</canPlay>
+                            <albumArtURI>http://djloboapp.com/sonos/cover_art/cover_art_600.jpg</albumArtURI>
+                            <canPlay>true</canPlay>
+                            <duration><%= song[duration] %></duration>
                     </trackMetadata>
                 </mediaMetadata>
                 <% end %>
