@@ -37,7 +37,7 @@ defmodule LoboCatalogService.Sonos.Operations do
     ExtendedMetadata.metadata(String.split(List.to_string(id), ":"), catalog)
   end
 
-  def invoke(_, _catalog) do
+  def invoke(_body, _catalog) do
     {:error, "No matching operations"}
   end
 

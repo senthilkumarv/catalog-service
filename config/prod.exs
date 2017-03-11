@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :lobo_catalog_service, LoboCatalogService.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
+  debug_errors: false,
   check_origin: false
 
 # Do not print debug messages in production

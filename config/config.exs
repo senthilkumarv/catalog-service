@@ -5,10 +5,6 @@
 # is restricted to this project.
 use Mix.Config
 
-# General application configuration
-config :lobo_catalog_service,
-  ecto_repos: [LoboCatalogService.Repo]
-
 # Configures the endpoint
 config :lobo_catalog_service, LoboCatalogService.Endpoint,
   url: [host: "localhost"],

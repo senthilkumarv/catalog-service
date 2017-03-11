@@ -13,9 +13,13 @@ defmodule LoboCatalogService.Web do
     end
   end
 
-  def channel do
+  def view do
     quote do
-      use Phoenix.Channel
+      use Phoenix.View, root: "web/templates"
+
+      import Phoenix.Controller
+
+      import LoboCatalogService.Router.Helpers
     end
   end
 

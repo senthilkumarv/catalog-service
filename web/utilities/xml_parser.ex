@@ -14,15 +14,17 @@ defmodule Plug.Parsers.SOAP do
             {:ok, %{headers: soap_header, body: soap_body}, conn}
           {:ok, {:Envelope, [], :undefined, {:Body, [], [soap_body]}}, []} ->
             {:ok, %{body: soap_body}, conn}
+          {:ok, _, _} ->
+            {:ok, %{error: "Bad Request"}, conn}
           {:error, _} ->
-            raise Plug.BadRequestError
+            {:ok, %{error: "Bad Request"}, conn}
         end
       {:more, _data, conn} ->
-        {:error, :too_large, conn}
+        {:ok, :too_large, conn}
       {:error, :timeout} ->
-        raise Plug.TimeoutError
+        {:ok, %{error: "Bad Request"}, conn}
       {:error, _} ->
-        raise Plug.BadRequestError
+        {:ok, %{error: "Bad Request"}, conn}
     end
   end
 
