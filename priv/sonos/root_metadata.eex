@@ -24,7 +24,7 @@
                   <id>category:<%= category[:categoryId] %></id>
                   <itemType>container</itemType>
                   <title><%= category[:categoryTitle] %>(<%= category[:totalSongs] %>)</title>
-                  <albumArtURI>http://djloboapp.com/sonos/categories/default2_600.jpg</albumArtURI>
+                  <albumArtURI>http://djloboapp.com/sonos/categories/default2_180.jpg</albumArtURI>
                   <canEnumerate>true</canEnumerate>
                   <canPlay>true</canPlay>
                   <canScroll>false</canScroll>
